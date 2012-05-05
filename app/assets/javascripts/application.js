@@ -10,7 +10,15 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require underscore
-//= require backbone
 //= require jquery
 //= require jquery_ujs
+//= require underscore
+//= require backbone
+//= require jquery-ui-1.8.20.custom
+//= require jquery.cf.popover
+//= require handlebars-1.0.0.beta.6
+//= require handlebars.runtime
+//
+//= require_tree ../templates
+//
+//= require app/app

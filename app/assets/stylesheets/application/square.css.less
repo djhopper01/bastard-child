@@ -1,0 +1,32 @@
+@import "twitter/bootstrap/mixins";
+
+.square {
+	
+}
+
+.square > div {
+	background: white;
+	height: 200px;
+	margin: 12px 0px;
+	padding: 12px;
+	.box-shadow(4px 4px 10px rgba(0,0,0,0.4));
+	border: 1px solid transparent;
+	&:hover {
+		border: 1px solid #999;
+	}
+}
+
+.new-square > div {
+	a {
+		display: block;
+		height: 100%;
+		background-image: url(/images/68x68/117.png);
+		background-repeat: no-repeat;
+		background-position: center;
+		.opacity(50);
+	}
+	a:hover {
+		text-decoration: none;
+		.opacity(100);
+	}
+}
