@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BastardChild</title>
+  <%= stylesheet_link_tag    "marketing", :media => "all" %>
+  <%= javascript_include_tag "marketing" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="hero-unit">
+			<%= yield %>
+		</div>
+		
+		<footer>
+			<p>
+				We are <a href="http://www.youtube.com/watch?v=oHg5SJYRHA0">responsible for nothing</a> on this website. Use at your own risk.
+			</p>
+		</footer>
+	</div>
+
+</body>
+</html>
