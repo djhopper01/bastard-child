@@ -1,25 +1,32 @@
 <div>
 	{{#if isMediaOnly}}
-		&nbsp;
+		<a class="media" href="#image-{{id}}" rel="facebox">
+			&nbsp;
+		</a>
+		<div id="image-{{id}}" style="display:none;">
+			<img src="{{url}}">
+		</div>
 	{{else}}
 		<h3>
-			<a href="{{url}}">{{title}}</a>
+			<a href="#full-{{id}}" class="read_more">{{title}}</a>
 		</h3>
 		<div class="summary">
 			<p>
 				{{summary}}
 			</p>
 		</div>
-	
-		<div class="controls">
-			<ul class="unstyled inline">
-				<li class="pull-left">
-					<a class="read_more" href="#">Read more</a>
-				</li>
-				<li class="pull-right">
-					<a class="remove" href="#">Remove</a>
-				</li>
-			</ul>
+		
+		<div id="full-{{id}}" class="full" style="display:none;">
 		</div>
 	{{/if}}
+	<div class="controls">
+		<ul class="unstyled inline">
+			<li class="pull-left">
+				<a href="{{url}}" target="_blank">Original</a>
+			</li>
+			<li class="pull-right">
+				<a class="remove" href="#">Remove</a>
+			</li>
+		</ul>
+	</div>
 </div>

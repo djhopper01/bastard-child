@@ -5,6 +5,19 @@
 
 }
 
+.square:hover {
+	.controls {
+		display: block;
+		a {
+			color: #999;
+		}
+	}
+	
+	> div {
+		border: 3px solid #ffff99;
+	}
+}
+
 .square > div {
 	background: #EFEEE9;
 	height: 200px;
@@ -15,17 +28,18 @@
 	.border-radius(10px);
 	position: relative;
 	
+	a.media {
+		display: block;
+		height: 100%;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	
 	&.image {
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;
-	}
-	
-	&:hover {
-		border: 3px solid #ffff99;
-		.controls {
-			display: block;
-		}
 	}
 	
 	h3 {
@@ -43,12 +57,18 @@
 	
 	.controls {
 		position: absolute;
-		bottom: 5%;
+		bottom: -15%;
 		width: 254px;
-		display: none;
-		background: #EFEEE9;
-		border-top: 1px solid #999;
-		padding-top: 4px;
+		a {
+			color: #eee;
+		}
+	}
+	
+	.controls:hover {
+		display: block;
+		a {
+			color: #999;
+		}
 	}
 }
 

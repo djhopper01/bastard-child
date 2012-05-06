@@ -13,5 +13,6 @@
  *= require jquery-ui/jquery.ui.resizable
  *= require jquery-ui/jquery.ui.autocomplete
  *= require jquery-ui/jquery.ui.theme
+ *= require facebox
  *= require_tree ./application
 */

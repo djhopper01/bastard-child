@@ -4,7 +4,7 @@ Handlebars.registerHelper('showNewSquare', function(squares) {
 	if(squares) {
 		count = squares.length;
 	}
-	for(var i=0; i < 9 - count; i++) {
+	for(var i=0; i < 9; i++) {
 		html += "<li class='span4 square new-square'></li>";
 	}
 	return html;
@@ -13,4 +13,8 @@ Handlebars.registerHelper('showNewSquare', function(squares) {
 
 Handlebars.registerHelper('mediaHelper', function(url) {
 
+});
+
+Handlebars.registerHelper('renderText', function(text) {
+	return text.replace(/\n+/g, "<br/><br/>");
 });

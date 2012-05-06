@@ -30,9 +30,17 @@ window.app = {
 			var link = $(this);
 			app.router.navigate(link.attr('href').substring(1) ,true);
 		});
+		
 	}
 }
 
 $(document).ready(function() {
+	$(document).bind('beforeReveal.facebox', function() {
+	    var height = $(window).height() - 100;
+			console.log(height);
+	    $('#facebox .content').css('height', height + 'px');
+	    $('#facebox').css('top', ($(window).scrollTop() + 10) + 'px');
+	});
+	
 	app.init();
 });

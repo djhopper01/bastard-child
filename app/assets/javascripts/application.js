@@ -20,6 +20,7 @@
 //= require jquery.textTruncate
 //= require handlebars-1.0.0.beta.6
 //= require handlebars.runtime
+//= require facebox
 //
 //= require_tree ../templates
 //
