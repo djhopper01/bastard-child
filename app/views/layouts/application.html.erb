@@ -8,13 +8,24 @@
 </head>
 <body>
 	
-	<div class="alert alert-info search">
-		<form class="form-search">
-			<input type="text" class="input-medium search-query span8" placeholder="Search Mi Favoritos">
-		</form>
+	<div class="alert alert-info search row">
+		<div class="search-container">
+			<form class="form-search">
+				<input type="text" class="input-medium search-query span8" placeholder="Search Mi Favoritos">
+				<%= image_tag asset_path('marco.png'), :class => 'marco' %>
+			</form>
+		</div>
 	</div>
 	
-	<div class="container">
+	<div class="speech-container">
+		<div class="span8">
+			<div class="triangle-border right pull-right alert alert-info">
+				Marco says, "Holy frijoles! You should always keepo your favoritos organized, or else."
+			</div>
+		</div>
+	</div>
+	
+	<div class="container main">
 		<div class="row">
 			<div class="span12">
 				<div id="main-container">
