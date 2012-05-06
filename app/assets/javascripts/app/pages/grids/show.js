@@ -39,11 +39,7 @@ app.pages.GridsShow = app.views.Base.extend({
 			var view = new app.views.SquaresShow({model: self.squares.get(square.id)});
       if(view) {
 				var index = square.get('position').y * 3 + square.get('position').x;
-				if(index == 8) {
-					self.$('ul.squares').append(view.render().el);
-				} else {
-					self.$('ul.squares li:eq('+index+')').after(view.render().el);
-				}
+				self.$('ul.squares li:eq('+index+')').after(view.render().el);
         view.delegateEvents();
       }
 		});
