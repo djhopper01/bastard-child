@@ -11,29 +11,50 @@ app.pages.GridsShow = app.views.Base.extend({
 	},
 	
 	initialize: function(options) {
-		var grid = {
-			squares: [
-				{title: "Arraignment held for 9/11 suspects", summary: "This is a super great summary."},
-				{title: "Buffett on his cancer: 'A non-event'", summary: "This is a super great summary."},
-				{title: "Soldier's death on Skype investigated", summary: "This is a super great summary."},
-				{title: "Don't miss tonight's super moon", summary: "This is a super great summary."},
-				{title: "Cinco de Mayo as American as July 4", summary: "This is a super great summary."},
-				{title: "Panetta to GIs: Misconduct aids enemy", summary: "This is a super great summary."},
-				{title: "Olmert: U.S. right wing derailed peace", summary: "This is a super great summary."}
-			]
-		}
 		
-		this.model = new app.models.Grid(grid);
+		this.model = new app.models.Grid({id: options.id});
+		this.model.on('change', this.updateSquares, this);
+		this.model.fetch();
+		
+		this.squares = new app.collections.Squares(this.model.get('squares'));
+		
+		this.squares.on('sync', this.updateGrid, this);
+		this.squares.on('reset', this.render, this);
 
 	},
 	
 	renderSubviews: function() {
+		// this.$('ul.squares').empty();
+		this.squaresShow();
 		this.squaresNew();
 	},
 	
+	updateSquares: function(model) {
+		this.squares.reset(model.get('squares'));
+	},
+	
+	squaresShow: function() {
+		var self = this;
+		this.squares.each(function(square) {
+			var view = new app.views.SquaresShow({model: self.squares.get(square.id)});
+      if(view) {
+				var index = square.get('position').y * 3 + square.get('position').x;
+				if(index == 8) {
+					self.$('ul.squares').append(view.render().el);
+				} else {
+					self.$('ul.squares li:eq('+index+')').after(view.render().el);
+				}
+        view.delegateEvents();
+      }
+		});
+	},
+	
 	squaresNew: function() {
+		var self = this;
 		this.$('.new-square').each(function(index, element) {
-			var view = new app.views.SquaresNew({});
+			var model = new app.models.Square();
+			self.squares.add(model);
+			var view = new app.views.SquaresNew({model: model});
       if(view) {
         $(element).html(view.render().el)
         view.delegateEvents();
@@ -46,10 +67,40 @@ app.pages.GridsShow = app.views.Base.extend({
 	},
 	
 	makeSortable: function() {
+		var self = this;
 		var $sortable = this.$('ul');
 		$sortable.sortable({
-
+			update: function(event, ui) {
+				self.updateGrid();
+			}
 		});
 		$sortable.disableSelection();
+	},
+	
+	updateGrid: function() {
+		var self = this;
+		this.$('.square').each(function(index, element) {
+			var x = index % 3;
+			var y = parseInt(index / 3);
+			var id = parseInt($(element).data('id'));
+			if(id) {
+				self.squares.get(id).set({position: {x: x, y:y}});
+			}
+		});
+		
+		var attributes = this.squares.map(function(square) {
+			if(square.get('id')) {
+				return {id: square.get('id'), position: square.get('position')};
+			}
+		});
+		
+		$.ajax({
+			url: "http://pigppo.com:9000/API/grids/"+this.model.get('id'),
+			type: "POST",
+			data: JSON.stringify(_.compact(attributes)),
+			success: function(response) {
+
+			}
+		});
 	}
 });

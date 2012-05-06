@@ -1,3 +1,3 @@
 app.models.Square = Backbone.Model.extend({
-	urlRoot: "/squares"
+	urlRoot: "http://pigppo.com:9000/API/squares"
 });

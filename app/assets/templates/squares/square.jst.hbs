@@ -1,6 +1,25 @@
-<li class="span4 square">
-	<div>
-		<h3>{{title}}</h3>
-		<div>{{summary}}</div>
-	</div>
-</li>
+<div>
+	{{#if isMediaOnly}}
+		&nbsp;
+	{{else}}
+		<h3>
+			<a href="{{url}}">{{title}}</a>
+		</h3>
+		<div class="summary">
+			<p>
+				{{summary}}
+			</p>
+		</div>
+	
+		<div class="controls">
+			<ul class="unstyled inline">
+				<li class="pull-left">
+					<a class="read_more" href="#">Read more</a>
+				</li>
+				<li class="pull-right">
+					<a class="remove" href="#">Remove</a>
+				</li>
+			</ul>
+		</div>
+	{{/if}}
+</div>

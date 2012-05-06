@@ -14,8 +14,10 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require plupload.full
 //= require jquery-ui-1.8.20.custom
 //= require jquery.cf.popover
+//= require jquery.textTruncate
 //= require handlebars-1.0.0.beta.6
 //= require handlebars.runtime
 //

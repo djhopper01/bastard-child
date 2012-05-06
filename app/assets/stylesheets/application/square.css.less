@@ -1,19 +1,59 @@
+@import "twitter/bootstrap/variables";
 @import "twitter/bootstrap/mixins";
 
 .square {
-	
+
 }
 
 .square > div {
-	background: white;
+	background: #EFEEE9;
 	height: 200px;
-	margin: 12px 0px;
+	margin: 20px 8px;
 	padding: 12px;
 	.box-shadow(4px 4px 10px rgba(0,0,0,0.4));
-	border: 1px solid transparent;
-	&:hover {
-		border: 1px solid #999;
+	border: 3px solid transparent;
+	.border-radius(10px);
+	position: relative;
+	
+	&.image {
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
+	
+	&:hover {
+		border: 3px solid #ffff99;
+		.controls {
+			display: block;
+		}
+	}
+	
+	h3 {
+		font-family: 'Droid Serif', serif;
+		a:hover {
+			text-decoration: none;
+		}
+	}
+	
+	.summary {
+		margin: 8px 0px;
+		overflow: hidden;
+		max-height: 55%;
+	}
+	
+	.controls {
+		position: absolute;
+		bottom: 5%;
+		width: 254px;
+		display: none;
+		background: #EFEEE9;
+		border-top: 1px solid #999;
+		padding-top: 4px;
+	}
+}
+
+.hover {
+	background: #999;
 }
 
 .new-square > div {

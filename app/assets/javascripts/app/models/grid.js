@@ -1,3 +1,3 @@
 app.models.Grid = Backbone.Model.extend({
-	urlRoot: "/grids"
+	urlRoot: "http://pigppo.com:9000/API/grids"
 });
