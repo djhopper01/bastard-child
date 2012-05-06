@@ -91,7 +91,7 @@ app.pages.GridsShow = app.views.Base.extend({
 		});
 		
 		$.ajax({
-			url: "http://pigppo.com:9000/API/grids/"+this.model.get('id'),
+			url: app.apiBaseUrl() + "/grids/"+this.model.get('id'),
 			type: "POST",
 			data: JSON.stringify(_.compact(attributes)),
 			success: function(response) {

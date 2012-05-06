@@ -15,6 +15,11 @@ window.app = {
 	views: {},
 	pages: {},
 	helpers: {},
+	
+	apiBaseUrl: function() {
+		return "http://api.mifavoritos.com";
+	},
+	
 	init: function() {
 		app.router = new app.Router();
 		
